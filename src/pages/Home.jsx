@@ -28,11 +28,18 @@ const Home = () => {
               userName 
             },
           });
-      
-    }
-
-    
+    }  
   }
+
+  const youEntered=(e)=>{
+    if(e.code=="Enter")
+    {
+      join()
+    }
+  }
+
+
+
 
 
   return (
@@ -41,8 +48,8 @@ const Home = () => {
         <img src="" alt="" />
         <div>
           <p>Paste Invtation Room Id</p>
-          <input type="text" value={id} placeholder='Room ID'  onChange={(e)=>setId(e.target.value)}/>
-          <input type="text" value={userName} placeholder='UserName' onChange={(e)=>setUserName(e.target.value)}/>
+          <input type="text" onKeyUp={youEntered} value={id} placeholder='Room ID'  onChange={(e)=>setId(e.target.value)}/>
+          <input type="text" onKeyUp={youEntered} value={userName} placeholder='UserName' onChange={(e)=>setUserName(e.target.value)}/>
           <button onClick={join}>Join</button>
           <button onClick={()=>account()}>Create Account</button>
         </div>
